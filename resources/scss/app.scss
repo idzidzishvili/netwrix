@@ -127,6 +127,9 @@ header{
          flex:1;
          display: flex;
          justify-content: center;
+         img{
+            max-height: 76px;
+         }
       }
 
       .company-details{
