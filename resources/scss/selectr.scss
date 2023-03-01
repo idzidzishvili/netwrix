@@ -1,0 +1,37 @@
+.selectr-container{
+   margin-bottom: 8px;
+}
+.select-wrapper>div{
+   width: 33%!important;
+}
+.selectr-selected {
+   background: transparent;
+}
+.selectr-container>div, .selectr-container.open .selectr-selected {
+   border: 1px solid #FFF;
+}
+.selectr-input-container{
+   padding: 2px;
+}
+.selectr-input {
+   margin: 0;
+   width: 100%;
+   outline: none;
+}
+li.selectr-option{
+   color: #000;
+   padding: 5px 10px;
+   font-size: 15px;
+}
+li.selectr-option.selected, li.selectr-option.actived, li.selectr-option:hover {
+   background-color: #0068DA;
+   color: #FFF;
+}
+.selectr-input-container.active .selectr-input-clear{
+   display: none;
+}
+@media only screen and (max-width: 767px) {
+   .select-wrapper>div{
+      width: 100%!important;
+   }
+}
