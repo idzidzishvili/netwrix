@@ -42,6 +42,7 @@ class ApiController extends Controller
 
 
     public function searchCompanies( Request $request){
+        sleep(2);
         $search = $request->has('keyword') ? $request->keyword : null;
         $companies = PartnerLocator::where('address', 'LIKE', '%'.$search.'%')->orWhere('company', 'LIKE', '%'.$search.'%')->get();
         return response()->json([
