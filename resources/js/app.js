@@ -25,14 +25,12 @@ sel_state.disable();
 sel_type.on('selectr.select', function(option) {
    showLoading();
    getCompanies(getParams()).then(data => {
-      console.log(data);
       renderCompanies(data);
    })
 });
 sel_country.on('selectr.select', function(option) {
    showLoading()
    getCompanies(getParams()).then(data => {
-      console.log(data);
       renderCompanies(data);
       refreshStates(data.states);
    })
@@ -40,7 +38,6 @@ sel_country.on('selectr.select', function(option) {
 sel_state.on('selectr.select', function(option) {
    showLoading()
    getCompanies(getParams()).then(data => {
-      console.log(data);
       renderCompanies(data);
    })
 });
@@ -56,11 +53,10 @@ searchText.addEventListener("keypress", function(event) {
 
 const searchButton = document.getElementById("search-button");
 searchButton.addEventListener("click", function(event) {
-   // console.log(searchText.value.length)
    if(searchText.value.length){
+      showLoading();
       let queryString = '?keyword='+searchText.value;
       searchCompanies(queryString).then(data => {
-         console.log(data);
          renderCompanies(data);
       })
    }
@@ -147,7 +143,6 @@ function renderCompanies(data){
 const getCompanies = async (queryString) => {
    return await axios.get(`api/get-companies?${queryString}`)
       .then(response => {
-         console.log('returned data')
          return response.data
       }).catch(error => console.log(error));
 };
@@ -155,7 +150,6 @@ const getCompanies = async (queryString) => {
 const searchCompanies = async (queryString) => {
    return await axios.get(`api/search-companies?${queryString}`)
       .then(response => {
-         console.log('returned data')
          return response.data
       }).catch(error => console.log(error));
 };
