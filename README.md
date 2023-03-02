@@ -4,7 +4,20 @@ Projects purpose is to search among partners either by status, country and state
 
 ## Running the Project
 
-Download project from [https://github.com/idzidzishvili/netwrix](https://github.com/idzidzishvili/netwrix).
+Project is written in Laravel and therefore Laravel standart steps are required to run project:
+- Clone the project:
+```
+git clone https://github.com/idzidzishvili/netwrix.git
+```
+
+- Navigate to downloaded folder
+```
+cd netwrix
+```
+
+
+
+Download project from [https://github.com/idzidzishvili/netwrix](https://github.com/idzidzishvili/netwrix)
 - [Powerful dependency injection container](https://laravel.com/docs/container).
 - Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
 - Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
