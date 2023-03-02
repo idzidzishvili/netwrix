@@ -26,38 +26,54 @@
          <form id="search-form">
             <div class="input-wrapper">
                <input id="search-text">
-               <button><i class="fa fa-magnifying-glass"></i></button>
+               <button type="button" id="search-button"><i class="fa fa-magnifying-glass"></i></button>
             </div>
             <div class="select-wrapper">
-               <select id="type">
-                  <option>Georgia</option>
-                  <option>Germany</option>
-                  <option>Italy</option>
+               <select id="type" class="selectr">
+                  <option value="0">Type</option>
+                  @foreach ($statuses as $status)
+                     <option value="{{$status->status}}">{{$status->status}}</option>
+                  @endforeach
                </select>
-               <select id="country">
-                  <option>Georgia</option>
-                  <option>Germany</option>
-                  <option>Italy</option>
+               <select id="country" class="selectr">
+                  <option value="0" >Country</option>
+                  @foreach ($countries as $country)
+                     <option value="{{$country->short_name}}">{{$country->name}}</option>
+                  @endforeach
                </select>
-               <select id="state">
-                  <option>Georgia</option>
-                  <option>Germany</option>
-                  <option>Italy</option>
+               <select id="state" class="selectr">
+                  {{-- <option value="0">State</option> --}}
                </select>
             </div>
          </form>
       </section>
 
       <section id="search-results">
-         <div class="search-result">
-            <div class="company-logo"></div>
-            <div class="company-details"></div>
-            <div class="company-contact"></div>
-            <div class="partner-type"></div>
-         </div>
+         @foreach ($partners as $partner)
+            <div class="search-result">
+               <div class="company-logo">
+                  <img src="{{$partner->logo}}">
+               </div>
+               <div class="company-details">
+                  <span class="company-title">
+                     {{$partner->company}}
+                  </span>
+                  <span class="company-address">
+                     {{$partner->address}}
+                  </span>
+               </div>
+               <div class="company-contact">
+                  <a href="{{$partner->website}}" class="company-website" target="_blank">Website</a>
+                  <span class="company-phone">
+                     {{$partner->phone}}
+                  </span>
+               </div>
+               <div class="partner-type">
+                  <span>{{$partner->status}}</span>
+               </div>
+            </div>
+         @endforeach
       </section>
-
-
 
       <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mobius1/selectr@latest/dist/selectr.min.js"></script>
       @vite('resources/js/app.js')
