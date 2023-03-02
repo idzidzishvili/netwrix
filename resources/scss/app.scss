@@ -17,7 +17,6 @@ body{
 header, #search-area, #search-results{
    width: 100%;
    max-width: 1400px;
-   border: solid red 1px
 }
 
 header{
@@ -110,6 +109,7 @@ header{
    align-items: center;
    background-color: #F3F4FA;
    padding-top: 53px;
+   position: relative;
 
    .search-result{
       width: 100%;
@@ -189,6 +189,29 @@ header{
          span{
             font-weight: 600;
          }
+      }
+   }
+
+   .no-result{
+      margin-bottom: 40px;
+      span{
+         color: #0068DA;
+      }
+   }
+
+   .loading{
+      position: absolute;
+      top:0;
+      left:0;
+      right: 0;
+      bottom:0;
+      opacity: .7;
+      padding-top:50px;
+      background-color: #354556;
+      display: flex;
+      justify-content: center;
+      span{
+         color: #FFFFFF;
       }
    }
 }

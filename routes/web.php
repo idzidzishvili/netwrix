@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Country;
+use App\Models\PartnerLocator;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    $partners = PartnerLocator::all();
+    $statuses = PartnerLocator::select('status')->distinct()->get();
+    $countries = Country::all();
+    // dd($statuses);
+    return view('index', ['partners' => $partners, 'statuses' => $statuses, 'countries' => $countries]);
 });
